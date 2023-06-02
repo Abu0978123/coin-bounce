@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const { MONGODB_CONNECTION_STRING } = require("../config/index");
 
-// DB_STRING is used for localhost connection of DB
+// DB_STRING is used for online clustor connection of DB
 const DB_STRING = MONGODB_CONNECTION_STRING;
 
 // compassLink is used for localhost connection of DB
