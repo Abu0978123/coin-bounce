@@ -5,6 +5,7 @@ const DB_Connection = require('./db/db_conn')
 const errorHandler = require('./middlewares/errorHandles')
 const {PORT} = require('./config/index')
 
+app.use(express.json());
 app.use(router);
 DB_Connection();
 app.use(errorHandler);

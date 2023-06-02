@@ -9,7 +9,7 @@ router.post('/register', authController.register);
 
 // login
 router.post('/login', authController.login);
- 
+  
 // logout
 // router.post('/logout', authController.logout)
 
