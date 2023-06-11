@@ -2,6 +2,8 @@ const Joi = require("joi");
 const bcrypt = require("bcrypt");
 const userSchema = require("../models/users");
 const users = require("../models/users");
+// const userDto = require('../dto/dto');
+const userDTO = require("../dto/dto");
 const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,25}$/;
 const authController = {
   // user registeration
@@ -81,7 +83,7 @@ const authController = {
       if (!user) {
         const error = {
           status: 401,
-          message: "username invalid or password invalid",
+          message: "Invalid username",
         };
         return next(error);
       }
@@ -98,7 +100,9 @@ const authController = {
     } catch (error) {
       return next(error);
     }
-    return res.status(200).json({ user: user });
+    // data flow object
+    const userDto = new userDTO(user)
+    return res.status(200).json({ user: userDto });
   },
 };
 
